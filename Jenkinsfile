@@ -1,14 +1,13 @@
 pipeline{
     agent any
-    options {
-        timestamps()
-    }
     stages{
         stage("Build"){
             steps{
-                echo "========executing Build ========"
-                echo "Hello"
-                echo "World"
+                timestamps{
+                    echo "========executing Build ========"
+                    echo "Hello"
+                    echo "World"
+                }
             }
             post{
                 always{
