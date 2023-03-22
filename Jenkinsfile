@@ -1,14 +1,18 @@
 pipeline{
     agent any
-    options { skipDefaultCheckout() }
+    options{
+        timestamps()
+    }
+    environment{
+        name = "John"
+        surname = "Smith"
+    }
     stages{
         stage("Build"){
             steps{
-                timestamps{
-                    echo "========executing Build ========"
-                    echo "Hello"
-                    echo "World"
-                }
+                echo "========executing Build ========"
+                echo "Hello"
+                echo "My name is ${name} ${surname}"
             }
             post{
                 always{
