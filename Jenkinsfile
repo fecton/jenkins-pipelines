@@ -1,10 +1,10 @@
 pipeline{
     agent any
+    options {
+        timestamps()
+    }
     stages{
         stage("Build"){
-            options {
-                timestamps()
-            }
             steps{
                 echo "========executing Build ========"
                 echo "Hello"
