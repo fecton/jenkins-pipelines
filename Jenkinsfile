@@ -3,11 +3,12 @@ pipeline{
     stages{
         stage("Build"){
             options {
-                timeout(time: 1, unit: 'SECONDS')
+                timestamps()
             }
             steps{
                 echo "========executing Build ========"
-                sleep 2
+                echo "Hello"
+                echo "World"
             }
             post{
                 always{
@@ -21,16 +22,10 @@ pipeline{
                 }
             }
         }
-    }
-    post{
-        always{
-            echo "========always========"
-        }
-        success{
-            echo "========pipeline executed successfully ========"
-        }
-        failure{
-            echo "========pipeline execution failed========"
+        stage("Test") {
+            steps {
+                echo "Test stage"
+            }
         }
     }
 }
