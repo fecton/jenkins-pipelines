@@ -11,7 +11,9 @@ pipeline{
     stages{
         stage("Build"){
             when {
-                equals expected: "jeff", actual: name
+                not {
+                    equals expected: "jeff", actual: name
+                }
             }
             steps{
                 echo "========executing Build ========"
