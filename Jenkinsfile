@@ -1,12 +1,9 @@
 pipeline{
-    agent none
+    agent any
+    options { skipDefaultCheckout() }
     stages{
         stage("Build"){
             steps{
-                agent any
-                options {
-                    skipDefaultCheckout()
-                }
                 timestamps{
                     echo "========executing Build ========"
                     echo "Hello"
