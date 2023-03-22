@@ -11,7 +11,7 @@ pipeline{
     stages{
         stage("Build"){
             when {
-                environment name: 'DEPLOY_TO', value: "production"
+                equals expected: "jeff", actual: DEPLOY_TO
             }
             steps{
                 echo "========executing Build ========"
