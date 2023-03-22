@@ -4,14 +4,14 @@ pipeline{
         timestamps()
     }
     environment{
-        name = "John"
+        name = "jeff"
         surname = "Smith"
         DEPLOY_TO = "production"
     }
     stages{
         stage("Build"){
             when {
-                equals expected: "jeff", actual: DEPLOY_TO
+                equals expected: "jeff", actual: name
             }
             steps{
                 echo "========executing Build ========"
