@@ -13,17 +13,7 @@ pipeline{
                 echo "========executing Build ========"
                 echo "Hello"
                 echo "My name is ${name} ${surname}"
-            }
-            post{
-                always{
-                    echo "========always========"
-                }
-                success{
-                    echo "========Build  executed successfully========"
-                }
-                failure{
-                    echo "========Build  execution failed========"
-                }
+                sh "printenv"
             }
         }
         stage("Test") {
