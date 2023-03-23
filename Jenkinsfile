@@ -10,23 +10,22 @@ pipeline{
         DEPLOY_TO = "production"
     }
     stages{
-        stage("Build"){
+        stage("Build master"){
             when {
-                allOf {
-                    environment name: "version", value: "1.0"
-                    environment name: "name", value: "jeff"
-                }
+                branch "master"
             }
             steps{
                 echo "========executing Build ========"
-                echo "Hello"
-                echo "My name is ${name} ${surname}"
-                sh "printenv"
+                // sh "printenv"
             }
         }
-        stage("Test") {
-            steps {
-                echo "Test stage"
+        stage("Build dev"){
+            when {
+                branch "dev"
+            }
+            steps{
+                echo "========executing Dev Build ========"
+                // sh "printenv"
             }
         }
     }
