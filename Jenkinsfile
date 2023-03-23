@@ -4,6 +4,7 @@ pipeline{
         timestamps()
     }
     environment{
+        version = "1.0"
         name = "jeff"
         surname = "Smith"
         DEPLOY_TO = "production"
@@ -11,8 +12,9 @@ pipeline{
     stages{
         stage("Build"){
             when {
-                expression {
-                    name == "jeff"
+                allOf {
+                    environment name: "version", value: "1.0"
+                    environment name: "name", value: "jeff"
                 }
             }
             steps{
