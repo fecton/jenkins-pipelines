@@ -10,6 +10,14 @@ pipeline{
         DEPLOY_TO = "production"
     }
     stages{
+        stage("Build tag") {
+            when{
+                tag "2.0"
+            }
+            steps {
+                echo "[+] Tag 2.0 was built successfully!"
+            }
+        }
         stage("Build master"){
             when {
                 branch "main"
