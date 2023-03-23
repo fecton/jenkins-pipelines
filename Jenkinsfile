@@ -11,8 +11,8 @@ pipeline{
     stages{
         stage("Build"){
             when {
-                not {
-                    equals expected: "jeff", actual: name
+                expression {
+                    name == "jeff"
                 }
             }
             steps{
