@@ -12,7 +12,7 @@ pipeline{
     stages{
         stage("Build master"){
             when {
-                branch "master"
+                branch "main"
             }
             steps{
                 echo "========executing Build ========"
